@@ -16,12 +16,11 @@ $connect->set_charset("utf8");
 $sql = "INSERT INTO `students`(`fname`, `lname`, `gender`, `age`) VALUES ('$lname','$fname','$gender',$age)";
 
 $result = $connect->query($sql);
-
+sleep(3);
 if($result){
-    echo "Данные о студенте добавлены";
-    header("Location:index.php");
+    echo "ok";
 }else{
-    echo "Ошибка добавления студента";
+    echo "error";
 }
 
 

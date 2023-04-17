@@ -1,0 +1,29 @@
+.block{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+}
+.block:hover{
+    background-color: green;
+}
+.message{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    padding: 20px 50px;
+    transform: translateY(-200px);
+    transition: transform 0.5s ease-in;
+
+}
+.success{
+    background: lightgreen;
+    color: darkcyan;
+}
+.show-message{
+    transform: translateY(0);
+}
+.reject{
+    background: rgb(238, 213, 144);
+    color: rgb(99, 3, 3);
+}
