@@ -1,11 +1,15 @@
 .block{
     width: 200px;
     height: 200px;
-    background-color: red;
-}
-.block:hover{
     background-color: green;
 }
+.blocks{
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+}
+/* .block:hover{
+    background-color: red;
+} */
 .message{
     position: absolute;
     width: 100%;
