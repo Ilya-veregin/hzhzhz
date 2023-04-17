@@ -32,16 +32,30 @@
     $connect->set_charset("utf8");
     //запрос
     $sql = "SELECT * FROM `students`";
+    $sql_g = "SELECT * FROM `groups`";
     //
     $result = $connect->query($sql);
-
-    while($row = $result->fetch_assoc()){
-        echo "<div>
-            $row[fname],$row[lname],$row[gender],$row[age]
-            </div>";
-        //print_r($row);
-    }
+    $result_g = $connect->query($sql_g);
     ?>
+    <div class="blocks">
+        <div class="block">
+            <?php
+            while($row = $result->fetch_assoc()){
+                echo "<div>
+                    $row[fname],$row[lname],$row[gender],$row[age]
+                    </div>";
+            }?>
+        </div>
+        <div class="block">
+            <?php
+            while($row = $result->fetch_assoc()){
+                echo "<div>
+                    $row[groups_id],$row[title]
+                    </div>";
+                //print_r($row);
+            }?>
+        </div>
+    </div>
 </div>
 <div class="block"></div>
 <DIV class="message"></DIV>
