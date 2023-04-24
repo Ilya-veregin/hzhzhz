@@ -8,22 +8,22 @@ const content = document.querySelector(".content");
 //отпарвка данных через форму
 form1.addEventListener("submit", (event)=> {
     event.preventDefault(); //отмена действий по умолчанию
-    console.log("Алло");
-    let formData = new FormData(form);
+    console.log("st");
+    let formData1 = new FormData(form1);
 
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "insertStudent.php");
-    xhr.send(formData); //отправка данных на сервер
+    xhr.send(formData1); //отправка данных на сервер
     xhr.onload = () =>{
         if(xhr.response == "ok"){
             msg.innerHTML="YES";
             msg.classList.add("success");
             msg.classList.add("show-message");
             let div = document.createElement("div");
-            let fname = formData.get("fname");
-            let lname = formData.get("lname");
-            let age = formData.get("age");
-            let gender = formData.get("gender");
+            let fname = formData1.get("fname");
+            let lname = formData1.get("lname");
+            let age = formData1.get("age");
+            let gender = formData1.get("gender");
             div.innerHTML = `${fname},${lname},${gender},${age}`;
             content.append(div);
         }else{
@@ -35,31 +35,31 @@ form1.addEventListener("submit", (event)=> {
 });
 
 //------------------------------------------------------------------------------
-// form2.addEventListener("submit", (event)=> {
-//     event.preventDefault(); //отмена действий по умолчанию
-//     console.log("Алло");
-//     let formData = new FormData(form);
+form2.addEventListener("submit", (event)=> {
+    event.preventDefault(); //отмена действий по умолчанию
+    console.log("gr");
+    let formData2 = new FormData(form2);
 
-//     let xhr = new XMLHttpRequest();
-//     xhr.open("POST", "insertGroup.php");
-//     xhr.send(formData); //отправка данных на сервер
-//     xhr.onload = () =>{
-//         if(xhr.response == "ok"){
-//             msg.innerHTML="YES";
-//             msg.classList.add("success");
-//             msg.classList.add("show-message");
-//             let div = document.createElement("div");
-//             let fname = formData.get("groups_id");
-//             let lname = formData.get("title");
-//             div.innerHTML = `${groups_id},${title}`;
-//             content.append(div);
-//         }else{
-//             msg.innerHTML="NO";
-//             msg.classList.add("reject");
-//             msg.classList.add("show-message");
-//         }
-//     };
-// });
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "insertGroup.php");
+    xhr.send(formData2); //отправка данных на сервер
+    xhr.onload = () =>{
+        if(xhr.response == "ok"){
+            msg.innerHTML="YES";
+            msg.classList.add("success");
+            msg.classList.add("show-message");
+            let div = document.createElement("div");
+            // let fname = formData2.get("groups_id");
+            let title = formData2.get("title");
+            div.innerHTML = `${title}`;
+            content.append(div);
+        }else{
+            msg.innerHTML="NO";
+            msg.classList.add("reject");
+            msg.classList.add("show-message");
+        }
+    };
+});
 
 //отправка данных без формы, метод get 
 

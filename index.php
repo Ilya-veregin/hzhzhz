@@ -29,9 +29,9 @@
                 <input type="text" name="fname" id="fname" placeholder="Введите имя"><br>
                 <input type="text" name="lname" id="lname" placeholder="Введите фамилию"><br>
                 <input type="number" name="age" id="age" placeholder="Введите возраст"><br>
-                <input type="radio" name="gender" id="m" value="m" checked>
+                <input type="radio" name="gender" id="f" value="f" checked>
                 <label for="m">мужской</label>
-                <input type="radio" name="gender" id="f" value="f">
+                <input type="radio" name="gender" id="m" value="m">
                 <label for="f">женский</label><br>
                 <input type="submit" value="добавить">
             </form>

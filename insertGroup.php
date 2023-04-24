@@ -12,7 +12,7 @@ if ($connect->connect_error){
 //кодировка
 $connect->set_charset("utf8");
 
-$sql = "INSERT INTO `groups`(`groups_id`, `title`) VALUES ('$groups_id','$title')";
+$sql = "INSERT INTO `groups`(`title`) VALUES ('$title')";
 
 $result = $connect->query($sql);
 sleep(3);
