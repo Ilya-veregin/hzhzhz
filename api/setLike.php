@@ -1,9 +1,4 @@
 <?php
-$lname = $_POST['lname'];
-$fname = $_POST['fname'];
-$age = $_POST['age'];
-$gender = $_POST['gender'];
-
 require_once("config.php"); 
 //соединение с бд
 $connect = new mysqli(HOST, USER, PASSWORD, DB);
@@ -13,16 +8,14 @@ if ($connect->connect_error){
 //кодировка
 $connect->set_charset("utf8");
 
-$sql = "INSERT INTO `students`(`fname`, `lname`, `gender`, `age`) VALUES ('$lname','$fname','$gender',$age)";
+$id = $_GET['id'];
+
+$sql = "UPDATE `students` SET `num_like` = `num_like` + 1 WHERE `student_id` = $id";
 
 $result = $connect->query($sql);
-sleep(1);
 if($result){
     echo "ok";
 }else{
     echo "error";
 }
-
-
-
 ?>

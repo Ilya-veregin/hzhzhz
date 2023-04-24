@@ -31,3 +31,15 @@
     background: rgb(238, 213, 144);
     color: rgb(99, 3, 3);
 }
+
+.like{
+    fill: gray;
+    width: 20px;
+}
+.like:hover{
+    fill: rgb(91, 185, 2);
+}
+
+.like--active{
+    fill: red;
+}
