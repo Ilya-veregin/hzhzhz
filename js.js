@@ -34,32 +34,6 @@ form1.addEventListener("submit", (event)=> {
     };
 });
 
-//отправка данных без формы, метод get 
-
-//(лайки у сстудентов)
-btnsLike = document.querySelectorAll(".like");
-function setLike(str1, str2){
-    return function(event){
-        let idStudent = event.target.closest(".student").dataset.id;
-        console.log(idStudent);
-        let xhr = new XMLHttpRequest();
-        xhr.open("GET", "api/setLike.php?id=" + idStudent);
-        xhr.onload = function(){
-            if(xhr.response == "ok"){
-                let num = +event.target.closest(".student").querySelector(".num-like").innerHTML;
-                event.target.closest(".student").querySelector(".num-like").innerHTML = num + 1;
-                console.log(str1);
-            }
-            else{
-                console.log(str2);
-            }
-        };
-        xhr.send();
-    }
-}
-for (btn of btnsLike){
-    btn.addEventListener("click", setLike("успешно","не успешно"));
-}
 //------------------------------------------------------------------------------
 // form2.addEventListener("submit", (event)=> {
 //     event.preventDefault(); //отмена действий по умолчанию
@@ -86,3 +60,67 @@ for (btn of btnsLike){
 //         }
 //     };
 // });
+
+//отправка данных без формы, метод get 
+
+//(лайки у сстудентов)
+btnsLike = document.querySelectorAll(".like");
+function setLike(str1, str2){
+    return function(event){
+        let idStudent = event.target.closest(".student").dataset.id;
+        console.log(idStudent);
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", "api/setLike.php?id=" + idStudent);
+        xhr.onload = function(){
+            if(xhr.response == "ok"){
+                let num = +event.target.closest(".student").querySelector(".num-like").innerHTML;
+                event.target.closest(".student").querySelector(".num-like").innerHTML = num + 1;
+                console.log(str1);
+            }
+            else{
+                console.log(str2);
+            }
+        };
+        xhr.send();
+    }
+}
+for (btn of btnsLike){
+    btn.addEventListener("click", setLike("успешно","не успешно"));
+}
+
+function getRandomInt(max){
+    return Math.floor(Math.random()*max);
+}
+
+const myPromise = new Promise((resolve,reject)=>{
+    console.log("i am promise");
+    let num;
+    setTimeout(() => {
+        num = getRandomInt(10);
+        console.log(num);
+        if(num >= 5){
+            resolve(num);
+        }else{
+            reject("плохо! число меньше 5");
+        }
+    }, 500);
+});
+
+myPromise
+.then(
+    (result)=>{
+        console.log(result);
+        result++;
+        console.log(result);
+        return result;
+    }
+)
+.then(
+    (result)=>{console.log(result*2)}
+)
+.catch(
+    (result)=>{console.log(result)}
+)
+.finally(
+
+);
