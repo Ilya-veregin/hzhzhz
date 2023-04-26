@@ -12,7 +12,7 @@
         echo "<p>Данных нет</p>";
     } else {
     
-        echo "<p class='back'><a href='/'>Назад</a></p>";
+        echo "<p class='back'><a href='./'>Назад</a></p>";
         $myrow  =  $rows->fetch_assoc();
 
         //обработка слова
